@@ -6,7 +6,7 @@ function* getHistory( action ) {
   try {
     const response = yield axios.get( '/api/history' );
     // create action that will store the response inside of the history reducer
-    action = { type: 'SET_HISTORY', payload: response };
+    action = { type: 'SET_HISTORY', payload: response.data };
     // perform action
     yield put( action );
   } catch (error) {
