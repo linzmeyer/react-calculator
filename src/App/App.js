@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
 import './App.css';
 import Button from './Button/Button';
 import EvalWindow from './EvalWindow/EvalWindow';
 
 class App extends Component {
+
+  componentDidMount() {
+    let action = { type: 'GET_HISTORY' };
+    this.props.dispatch( action );
+  }
+
   render() {
     return (
       <div className="App" >
@@ -42,4 +50,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()( App );
