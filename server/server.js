@@ -3,17 +3,17 @@ const app = express();
 const bodyParser = require('body-parser');
 
 // Define Server Routes
-// const userClueScoreRouter = require('./routes/user-clue-score.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connect server routes to express
-// app.use('/api/user-clue-score', userClueScoreRouter);
+const historyRouter = require('./routes/history.router.js');
+app.use( '/api/history', historyRouter );
 
 // Serve static files
-app.use( express.static( 'build' ));
+app.use(express.static('build'));
 
 // Define the port the server will listen on
 const PORT = process.env.PORT || 5000;
